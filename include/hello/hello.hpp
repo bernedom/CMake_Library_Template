@@ -1,11 +1,11 @@
 #pragma once
 
-#include "hello/export_hello.hpp"
+#include <hello/export_hello.hpp>
 #include <string>
 
 namespace hello {
 /// Example class that is explicitly exported into a dll
-class HELLOWORLDLIB_EXPORT Hello {
+class GREETER_EXPORT Hello {
 public:
   Hello(const std::string &name) : name_{name} {}
 
