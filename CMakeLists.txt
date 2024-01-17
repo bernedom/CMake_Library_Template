@@ -21,7 +21,7 @@ set(CMAKE_DEBUG_POSTFIX
 )
 
 # add the library target
-add_library(HelloWorldLib SHARED)
+add_library(HelloWorldLib)
 
 # set properties for the target. VERSION set the library version to the project
 # version * SOVERSION set the compatibility  version for the library to the
@@ -77,6 +77,18 @@ target_include_directories(
     PUBLIC "${CMAKE_CURRENT_BINARY_DIR}/export"
 )
 
-# An alternative but not recomended way export the symbols is to use
-# set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS TRUE) Which exports all dll symbols by
-# default
+include(GNUInstallDirs)
+install(
+    TARGETS HelloWorldLib
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+)
+
+install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+
+install(
+    FILES "${CMAKE_CURRENT_BINARY_DIR}/export/hello/export_hello.hpp"
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/hello
+)
