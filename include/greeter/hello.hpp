@@ -4,7 +4,7 @@
 #include <string>
 
 namespace Greeter {
-/// Example class that is explicitly exported into a dll
+/// Example class that is explicitly exported into a library
 class GREETER_EXPORT Hello {
 public:
   Hello(const std::string &name) : name_{name} {}
