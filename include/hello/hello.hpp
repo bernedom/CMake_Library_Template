@@ -3,7 +3,7 @@
 #include <hello/export_hello.hpp>
 #include <string>
 
-namespace hello {
+namespace Greeter {
 /// Example class that is explicitly exported into a dll
 class GREETER_EXPORT Hello {
 public:
@@ -14,4 +14,4 @@ public:
 private:
   const std::string name_;
 };
-} // namespace hello
+} // namespace Greeter

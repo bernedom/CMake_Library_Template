@@ -2,7 +2,7 @@
 
 #include <string>
 
-namespace hello::details{
+namespace Greeter::details{
 
     void print_impl(const std::string& name);
     

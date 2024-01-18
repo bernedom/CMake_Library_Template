@@ -2,7 +2,7 @@
 
 #include "internal.hpp"
 
-namespace hello{
+namespace Greeter{
     void Hello::greet() const {
         details::print_impl(name_);
     }
