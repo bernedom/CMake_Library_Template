@@ -1,9 +1,3 @@
-# Chapter3- example illustrating how to create a shared library
-# Additionally the example shows how to set a postfix for debug libraries and 
-# how to handle symbol visibilities for shared libraries
-#
-# SPDX-License-Identifier: MIT
-
 cmake_minimum_required(VERSION 3.17)
 
 project(
