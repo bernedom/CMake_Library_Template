@@ -1,6 +1,6 @@
 #pragma once
 
-#include <hello/export_hello.hpp>
+#include <greeter/export_greeter.hpp>
 #include <string>
 
 namespace Greeter {

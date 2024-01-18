@@ -44,7 +44,7 @@ target_compile_features(
 # set the include directories
 target_include_directories(
     Greeter
-    PRIVATE src/Greeter
+    PRIVATE src
     PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
@@ -65,7 +65,7 @@ set_property(
 generate_export_header(
     Greeter
     EXPORT_FILE_NAME
-    export/hello/export_hello.hpp
+    export/greeter/export_greeter.hpp
 )
 # Add CMAKE_CURRENT_BINARY_DIR to the include path so the generated header can
 # be found
@@ -93,8 +93,8 @@ install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 # install the generated export header
 install(
-    FILES "${CMAKE_CURRENT_BINARY_DIR}/export/hello/export_hello.hpp"
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/hello
+    FILES "${CMAKE_CURRENT_BINARY_DIR}/export/greeter/export_greeter.hpp"
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/greeter
 )
 
 # configure the CMake package file so the libray can be included with find_package() later
@@ -108,7 +108,7 @@ write_basic_package_version_file(
 configure_package_config_file(
     "${CMAKE_CURRENT_LIST_DIR}/cmake/GreeterConfig.cmake.in"
     "${CMAKE_CURRENT_BINARY_DIR}/GreeterConfig.cmake"
-    INSTALL_DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/cmake/Greeter
+    INSTALL_DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/cmake/greeter
 )
 
 # install the CMake targets
@@ -116,5 +116,5 @@ install(
     EXPORT GreeterTargets
     FILE GreeterTargets.cmake
     NAMESPACE Greeter::
-    DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/cmake/Greeter
+    DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/cmake/greeter
 )
