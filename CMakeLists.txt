@@ -16,8 +16,9 @@ set(CMAKE_DEBUG_POSTFIX
     d
 )
 
-# add the library target
+# add the library target and create an alias
 add_library(Greeter)
+add_library(Greeter::Greeter ALIAS Greeter)
 
 # set properties for the target. VERSION set the library version to the project
 # version * SOVERSION set the compatibility  version for the library to the
